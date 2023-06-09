@@ -1,5 +1,5 @@
 ### Home Screen
-![home](/assets/ss_home.png)
+![home](/assets/ss_home.png =x300)
 
 ### Tech Stack
 
