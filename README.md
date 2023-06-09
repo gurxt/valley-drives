@@ -1,3 +1,6 @@
+### Home Screen
+![home](/assets/ss_home.png)
+
 ### Tech Stack
 
 1. React-Native with Expo
