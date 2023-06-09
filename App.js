@@ -2,9 +2,11 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { store } from './store'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import HomeScreen from './screens/HomeScreen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import 'react-native-gesture-handler'
+import HomeScreen from './screens/HomeScreen'
+import MapScreen from './screens/MapScreen'
 
 const App = () => {
     const Stack = createStackNavigator()
@@ -17,6 +19,13 @@ const App = () => {
                         <Stack.Screen
                             name="HomeScreen"
                             component={HomeScreen}
+                            options={{
+                                headerShown: false
+                            }}
+                        />
+                        <Stack.Screen
+                            name="MapScreen"
+                            component={MapScreen}
                             options={{
                                 headerShown: false
                             }}

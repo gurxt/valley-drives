@@ -3,10 +3,13 @@ import React from 'react'
 import { Button } from '@rneui/base'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Icon } from "@rneui/themed"
+import { useNavigation } from '@react-navigation/native'
 
 // auto-login for now.
 
 const NavOptions = () => {
+    const navigation = useNavigation()
+
     return (
         <View className="flex-1 bg-black border-2 rounded">
             <View className="flex-1 rounded m-2">
@@ -23,6 +26,7 @@ const NavOptions = () => {
                         borderColor: "transparent",
                         outline: 0,
                     }}
+                    onPress={() => navigation.navigate('MapScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">
                         LOGIN
@@ -46,6 +50,7 @@ const NavOptions = () => {
                         outline: 0,
                         height: "100%"
                     }}
+                    onPress={() => navigation.navigate('MapScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">
                         CREATE ACCOUNT
@@ -69,6 +74,7 @@ const NavOptions = () => {
                         outline: 0,
                         height: "100%",
                     }}
+                    onPress={() => navigation.navigate('MapScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">HELP</Text>
                     <View className="w-20">
