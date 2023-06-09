@@ -4,6 +4,8 @@ import { Button } from '@rneui/base'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Icon } from "@rneui/themed"
 
+// auto-login for now.
+
 const NavOptions = () => {
     return (
         <View className="flex-1 bg-black border-2 rounded">
