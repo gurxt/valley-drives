@@ -7,6 +7,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { useDispatch } from 'react-redux'
 import { setDestination } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
+import { Button } from '@rneui/base'
 
 const NavigateCard = () => {
     const dispatch = useDispatch()
@@ -15,30 +16,34 @@ const NavigateCard = () => {
     return (
         <SafeAreaView className="flex-1 bg-black">
             <Text className="text-white text-center py-5 text-xl">Good morning, Timothy!</Text>
-            <View>
-                <GooglePlacesAutocomplete 
-                    styles={googleStyles}
-                    placeholder="Enter destination"
-                    nearbyPlacesAPI="GooglePlacesSearch"
-                    debounce={400}
-                    fetchDetails={true}
-                    enablePoweredByContainer={false}
-                    returnKeyType={"search"}
-                    onPress={(data, details = null) => {
-                        dispatch(setDestination({
-                            location: details.geometry.location,
-                            description: data.description
-                        })) 
+                <View>
+                    <View>
+                        <GooglePlacesAutocomplete 
+                            styles={googleStyles}
+                            placeholder="Enter destination"
+                            nearbyPlacesAPI="GooglePlacesSearch"
+                            debounce={400}
+                            fetchDetails={true}
+                            enablePoweredByContainer={false}
+                            returnKeyType={"search"}
+                            onPress={(data, details = null) => {
+                                dispatch(
+                                    setDestination({
+                                        location: details.geometry.location,
+                                        description: data.description
+                                    })
+                                ) 
 
-                        navigation.navigate("RideOptionsCard")
-                    }}
-                    query={{
-                        key: GOOGLE_MAPS_APIKEY,
-                        language: "en",
-                        components: "country:ca"
-                    }}
-                /> 
-            </View>
+                                navigation.navigate("RideOptionsCard")
+                            }}
+                            query={{
+                                key: GOOGLE_MAPS_APIKEY,
+                                language: "en",
+                                components: "country:ca"
+                            }}
+                        /> 
+                    </View>
+                </View>
         </SafeAreaView>
     )
 }
