@@ -26,7 +26,7 @@ const NavOptions = () => {
                         borderColor: "transparent",
                         outline: 0,
                     }}
-                    onPress={() => navigation.navigate('MapScreen')}
+                    onPress={() => navigation.navigate('SearchScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">
                         LOGIN
@@ -50,7 +50,7 @@ const NavOptions = () => {
                         outline: 0,
                         height: "100%"
                     }}
-                    onPress={() => navigation.navigate('MapScreen')}
+                    onPress={() => navigation.navigate('SearchScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">
                         CREATE ACCOUNT
@@ -74,7 +74,7 @@ const NavOptions = () => {
                         outline: 0,
                         height: "100%",
                     }}
-                    onPress={() => navigation.navigate('MapScreen')}
+                    onPress={() => navigation.navigate('SearchScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">HELP</Text>
                     <View className="w-20">
