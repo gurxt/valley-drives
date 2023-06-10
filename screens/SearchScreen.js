@@ -4,16 +4,14 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { GOOGLE_MAPS_APIKEY } from '@env'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Image } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectOrigin, setDestination, setOrigin } from '../slices/navSlice'
-import { Button } from '@rneui/themed'
+import { useDispatch } from 'react-redux';
+import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
 
 const valley = require('./../assets/valley.png')
 
 const SearchScreen = () => {
     const dispatch = useDispatch()
-    const origin = useSelector(selectOrigin)
     const navigation = useNavigation()
 
     return (
@@ -37,6 +35,8 @@ const SearchScreen = () => {
                         }))
 
                         dispatch(setDestination(null))
+
+                        navigation.navigate("MapScreen")
                     }}
                     query={{
                         key: GOOGLE_MAPS_APIKEY,
@@ -50,14 +50,6 @@ const SearchScreen = () => {
                     fetchDetails={true}
                     returnKeyType={"search"}
                 />
-            </View>
-            <View>
-                <Button 
-                    onPress={() => navigation.navigate("MapScreen") }
-                    disabled={!origin}
-                >
-                    Search
-                </Button>
             </View>
         </SafeAreaView>
     )
