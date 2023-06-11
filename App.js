@@ -8,6 +8,7 @@ import 'react-native-gesture-handler'
 import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
 import MapScreen from './screens/MapScreen'
+import ProfileScreen from './screens/ProfileScreen'
 import 'react-native-url-polyfill/auto'
 
 
@@ -22,6 +23,13 @@ const App = () => {
                         <Stack.Screen
                             name="HomeScreen"
                             component={HomeScreen}
+                            options={{
+                                headerShown: false
+                            }}
+                        />
+                        <Stack.Screen
+                            name="ProfileScreen"
+                            component={ProfileScreen}
                             options={{
                                 headerShown: false
                             }}

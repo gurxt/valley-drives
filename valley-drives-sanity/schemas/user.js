@@ -15,13 +15,18 @@ export default defineType({
             name: 'email',
             title: 'Email',
             type: 'string',
-            validation: (Rule) => Rule.required().email()
+            validation: (Rule) => Rule.email()
         },
         {
             name: 'phone',
             title: 'Phone Number',
             type: 'string',
             validation: (Rule) => Rule.required().length(10)
+        },
+        {
+            name: 'address',
+            title: 'Home Address',
+            type: 'string'
         },
         {
             name: 'password',

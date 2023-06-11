@@ -9,6 +9,7 @@ import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
 import { urlFor } from '../sanity'
 import { selectInfo } from '../slices/userSlice'
+import ProfileCard from '../components/ProfileCard'
 
 //const valley = require('./../assets/valley.png')
 const user_img = require("./../assets/female_01.png")
@@ -22,15 +23,7 @@ const SearchScreen = () => {
         <SafeAreaView className="flex-1 bg-black">
             <StatusBar />
             <View className="flex-1 justify-center items-center">
-                <View className="justify-center items-center">
-                    <Text className="text-white m-4 text-lg">
-                        Welcome, { user?.name }
-                    </Text>
-                    <Image 
-                        source={{ uri: urlFor(user?.avatar) }} 
-                        className="h-32 w-32 rounded-full" 
-                    />
-                </View>
+                <ProfileCard user={user}  />
                 <View className="flex-1 w-full m-4">
                     <GooglePlacesAutocomplete
                         placeholder="Start Destination"

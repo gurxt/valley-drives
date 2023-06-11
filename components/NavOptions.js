@@ -22,16 +22,12 @@ const NavOptions = () => {
                 "avatar": avatar.asset._ref,
                 phone,
                 name,
-                email
+                email,
+                address
             }[0]
         `)
 
-        dispatch(setInfo({
-            name: users.name,
-            email: users.email,
-            avatar: users.avatar,
-            phone: users.phone
-        }))
+        dispatch(setInfo({...users}))
     }
 
     useEffect(() => {
@@ -55,7 +51,7 @@ const NavOptions = () => {
                         outline: 0,
                     }}
                     onPress={() => {
-                        navigation.navigate('SearchScreen')
+                        navigation.navigate('ProfileScreen')
                     }}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">
@@ -80,7 +76,7 @@ const NavOptions = () => {
                         outline: 0,
                         height: "100%"
                     }}
-                    onPress={() => navigation.navigate('SearchScreen')}
+                    onPress={() => navigation.navigate('ProfileScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">
                         CREATE ACCOUNT
@@ -104,7 +100,7 @@ const NavOptions = () => {
                         outline: 0,
                         height: "100%",
                     }}
-                    onPress={() => navigation.navigate('SearchScreen')}
+                    onPress={() => navigation.navigate('ProfileScreen')}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">HELP</Text>
                     <View className="w-20">
