@@ -35,15 +35,15 @@ const NavOptions = () => {
     }, [])
     
     return (
-        <View className="flex-1 bg-black border-2 rounded">
+        <View style={{ flex: 1, backgroundColor: "#9fc9bc"}}>
             <View className="flex-1 rounded m-2">
                 <Button 
                     type="outline" 
                     ViewComponent={LinearGradient}
                     linearGradientProps={{
-                        colors: ['#222', '#000'],
-                        start: { x: 1, y: 0.5 },
-                        end: { x: 0.5, y: 0.5 },
+                        colors: ['#9fc9bc', '#80847e'],
+                        start: { x: 0.7, y: 0.5 },
+                        end: { x: 0.2, y: 0.1 },
                         height: "100%",
                     }}
                     buttonStyle={{
@@ -67,9 +67,10 @@ const NavOptions = () => {
                     type="outline" 
                     ViewComponent={LinearGradient}
                     linearGradientProps={{
-                        colors: ['#222', '#000'],
-                        start: { x: 1, y: 0.5 },
-                        end: { x: 0.5, y: 0.5 }
+                        colors: ['#9fc9bc', '#80847e'],
+                        start: { x: 0.7, y: 0.5 },
+                        end: { x: 0.2, y: 0.1 },
+                        height: "100%"
                     }}
                     buttonStyle={{
                         borderColor: "transparent",
@@ -91,9 +92,9 @@ const NavOptions = () => {
                     type="outline" 
                     ViewComponent={LinearGradient}
                     linearGradientProps={{
-                        colors: ['#222', '#000'],
-                        start: { x: 1, y: 0.5 },
-                        end: { x: 0.5, y: 0.5 }
+                        colors: ['#9fc9bc', '#80847e'],
+                        start: { x: 0.7, y: 0.5 },
+                        end: { x: 0.2, y: 0.1 },
                     }}
                     buttonStyle={{
                         borderColor: "transparent",

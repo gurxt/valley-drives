@@ -3,28 +3,30 @@ import React from 'react'
 import { urlFor } from '../sanity'
 import { Image } from 'react-native'
 import { useEffect } from 'react'
+import { SafeAreaView } from 'react-native'
 
 const ProfileCard = ({ user }) => {
-    useEffect(() => {
-        console.log(user)
-    }, [])
 
     return (
-        <View className="w-full px-5">
-            <View className="justify-center items-center px-4">
-                <Text className="text-white m-4 text-lg">
-                    Welcome, <Text className="font-thin">{ user?.name }!</Text>
+        <SafeAreaView className="flex-1 w-full mt-10 mb-2 px-2">
+            <View className="justify-center items-center p-4 rounded-lg">
+                <Text className="text-gray-900 m-2 text-lg">
+                    <Text className="font-thin">Welcome, </Text>
+                    <Text className="font-bold">{ user?.name }!</Text>
                 </Text>
                 <Image
                     source={{ uri: urlFor(user?.avatar) }} 
                     className="h-32 w-32 rounded-full" 
                 />
             </View>
-            <View className="w-full h-1/2 justify-start">
-                <Text className="text-white">{ user.email }</Text>
-                <Text className="text-white">{ user.address }</Text>
+            <View 
+                style={{ backgroundColor: "#9fc9bc" }}
+                className="flex-1 w-full justify-start mt-2 rounded-lg p-2"
+            >
+                <Text className="text-gray-900">{ user.email }</Text>
+                <Text className="text-gray-900">{ user.address }</Text>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

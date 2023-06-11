@@ -51,7 +51,6 @@ const Map = () => {
                 latitudeDelta: 0.005,
                 longitudeDelta: 0.005,
             }}
-            customMapStyle={map_silver}
         >
             { origin?.location && destination?.location && (
                 <MapViewDirections

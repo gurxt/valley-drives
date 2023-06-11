@@ -10,6 +10,7 @@ import SearchScreen from './screens/SearchScreen'
 import MapScreen from './screens/MapScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import 'react-native-url-polyfill/auto'
+import { StatusBar } from 'expo-status-bar'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 
     return (
         <Provider store={store}>
+            <StatusBar style="dark" />
             <NavigationContainer>
                 <SafeAreaProvider>
                     <Stack.Navigator>

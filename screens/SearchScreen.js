@@ -1,29 +1,22 @@
-import { View, Text, StyleSheet, StatusBar } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, StyleSheet, StatusBar } from 'react-native'
+import React from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_APIKEY } from '@env'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Image } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
-import { urlFor } from '../sanity'
-import { selectInfo } from '../slices/userSlice'
-import ProfileCard from '../components/ProfileCard'
-
-//const valley = require('./../assets/valley.png')
-const user_img = require("./../assets/female_01.png")
 
 const SearchScreen = () => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
-    const user = useSelector(selectInfo)
 
     return (
-        <SafeAreaView className="flex-1 bg-black">
-            <StatusBar />
+        <SafeAreaView 
+            style={{ backgroundColor: "#9fc9bc"}}
+            className="flex-1"
+        >
             <View className="flex-1 justify-center items-center">
-                <ProfileCard user={user}  />
                 <View className="flex-1 w-full m-4">
                     <GooglePlacesAutocomplete
                         placeholder="Start Destination"

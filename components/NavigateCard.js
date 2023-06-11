@@ -13,8 +13,8 @@ const NavigateCard = () => {
     const navigation = useNavigation()
 
     return (
-        <SafeAreaView className="flex-1 bg-black">
-            <Text className="text-white text-center py-5 text-xl">Good morning, Timothy!</Text>
+        <SafeAreaView style={{ flex: 1, backgroundColor: "#9fc9bc"}}>
+            <Text className="text-gray-900 text-center py-5 text-xl">Good morning, Timothy!</Text>
                 <View>
                     <View>
                         <GooglePlacesAutocomplete 

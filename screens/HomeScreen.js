@@ -7,7 +7,7 @@ const banner = require('./../assets/banner.png')
 
 const HomeScreen = () => {
     return (
-        <SafeAreaView className="bg-black h-full">
+        <SafeAreaView className="h-full">
             <View>
                 <Image
                     source={banner}
@@ -23,8 +23,7 @@ const HomeScreen = () => {
                         width: "100%", 
                         height: 100, 
                         margin: 0, 
-                        resizeMode: "contain",
-                        backgroundColor: "#000"
+                        resizeMode: "cover"
                     }}
                 />
             </View>
