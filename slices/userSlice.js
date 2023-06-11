@@ -1,15 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    info: {
-        name: null,
-        email: null,
-        phone: null,
-        home: null,
-        avatar: null
-    },
-    savedLocations: [],
-    rides: []
+    info: null,
+    savedLocations: null,
+    rides: null
 }
 
 export const userSlice = createSlice({
@@ -17,13 +11,13 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         setInfo: (state, action) => {
-            state.origin = action.payload
+            state.info = action.payload
         },
         setSavedLocations: (state, action) => {
-            state.origin = action.payload
+            state.savedLocations = action.payload
         },
         setRides: (state, action) => {
-            state.origin = action.payload
+            state.rides = action.payload
         }
     }
 })
@@ -39,4 +33,4 @@ export const selectInfo = (state) => state.user.info
 export const selectSavedLocation= (state) => state.user.savedLocations
 export const selectRides = (state) => state.user.rides
 
-export default navSlice.reducer
+export default userSlice.reducer

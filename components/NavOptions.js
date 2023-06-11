@@ -4,12 +4,40 @@ import { Button } from '@rneui/base'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Icon } from "@rneui/themed"
 import { useNavigation } from '@react-navigation/native'
+import { useDispatch } from 'react-redux'
+import { setInfo } from '../slices/userSlice'
+import sanityClient from '../sanity'
+import { useEffect } from 'react'
 
 // auto-login for now.
 
 const NavOptions = () => {
     const navigation = useNavigation()
+    const dispatch = useDispatch()
 
+    const login = async () => {
+        const users = await sanityClient.fetch(`
+            *[_type == 'user']{
+                "id": _id,
+                "avatar": avatar.asset._ref,
+                phone,
+                name,
+                email
+            }[0]
+        `)
+
+        dispatch(setInfo({
+            name: users.name,
+            email: users.email,
+            avatar: users.avatar,
+            phone: users.phone
+        }))
+    }
+
+    useEffect(() => {
+        login()
+    }, [])
+    
     return (
         <View className="flex-1 bg-black border-2 rounded">
             <View className="flex-1 rounded m-2">
@@ -26,7 +54,9 @@ const NavOptions = () => {
                         borderColor: "transparent",
                         outline: 0,
                     }}
-                    onPress={() => navigation.navigate('SearchScreen')}
+                    onPress={() => {
+                        navigation.navigate('SearchScreen')
+                    }}
                 >
                     <Text className="flex-1 text-white text-lg font-bold">
                         LOGIN
