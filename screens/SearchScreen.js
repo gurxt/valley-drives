@@ -13,7 +13,7 @@ const SearchScreen = () => {
 
     return (
         <SafeAreaView 
-            style={{ backgroundColor: "#9fc9bc"}}
+            style={{ backgroundColor: "#9fc9bc" }}
             className="flex-1"
         >
             <View className="flex-1 justify-center items-center">

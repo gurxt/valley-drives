@@ -30,41 +30,55 @@ const ProfileScreen = () => {
                         style={{ backgroundColor: "#9fc9bc" }}
                         className="w-1/2 mr-1 rounded-lg"
                     >
-                        <Button 
-                            buttonStyle={{ 
-                                display: "flex",
-                                flexDirection: "column",
-                                backgroundColor: "transparent",
-                                width: "100%",
-                            }}
-                            onPress={() => navigation.navigate('SearchScreen')}
+                        <View 
+                            style={{ backgroundColor: "#80847e44"}} 
+                            className="w-full justify-center items-center rounded-t-xl"
                         >
-                            <Text className="text-gray-700 font-bold text-xl">GET RIDE</Text>
-                            <Image 
-                                source={car} 
-                                className="w-32 h-32" 
-                            />
-                        </Button>
+                            <Text className="text-gray-900 text-lg font-light">GET RIDE</Text>
+                        </View>
+                        <View>
+                            <Button 
+                                buttonStyle={{ 
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    backgroundColor: "transparent",
+                                    width: "100%"
+                                }}
+                                onPress={() => navigation.navigate('SearchScreen')}
+                            >
+                                <Image 
+                                    source={car} 
+                                    className="w-32 h-32" 
+                                />
+                            </Button>
+                        </View>
                     </View>
                     <View 
                         style={{ backgroundColor: "#9fc9bc" }}
                         className="w-1/2 ml-1 rounded-lg"
                     >
-                        <Button 
-                            buttonStyle={{ 
-                                display: "flex",
-                                flexDirection: "column",
-                                backgroundColor: "transparent",
-                                width: "100%"
-                            }}
-                            onPress={() => navigation.navigate('SearchScreen')}
+                        <View 
+                            style={{ backgroundColor: "#80847e44"}} 
+                            className="w-full justify-center items-center rounded-t-xl"
                         >
-                            <Text className="text-gray-700 font-bold text-xl">GET RIDE</Text>
-                            <Image 
-                                source={car} 
-                                className="w-32 h-32" 
-                            />
-                        </Button>
+                            <Text className="text-gray-900 text-lg font-light">GET RIDE</Text>
+                        </View>
+                        <View>
+                            <Button 
+                                buttonStyle={{ 
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    backgroundColor: "transparent",
+                                    width: "100%"
+                                }}
+                                onPress={() => navigation.navigate('SearchScreen')}
+                            >
+                                <Image 
+                                    source={car} 
+                                    className="w-32 h-32" 
+                                />
+                            </Button>
+                        </View>
                     </View>
                 </View>
             </BackgroundImage>

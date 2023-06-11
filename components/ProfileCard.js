@@ -21,10 +21,16 @@ const ProfileCard = ({ user }) => {
             </View>
             <View 
                 style={{ backgroundColor: "#9fc9bc" }}
-                className="flex-1 w-full justify-start mt-2 rounded-lg p-2"
+                className="flex-1 w-full justify-start mt-2 rounded-lg"
             >
-                <Text className="text-gray-900">{ user.email }</Text>
-                <Text className="text-gray-900">{ user.address }</Text>
+                <View 
+                    style={{ backgroundColor: "#80847e44"}} 
+                    className="h-10 rounded-t-lg justify-center items-center"
+                >
+                    <Text className="text-gray-900 text-lg font-light">Account Information</Text>
+                </View>
+                <View>
+                </View>
             </View>
         </SafeAreaView>
     )
