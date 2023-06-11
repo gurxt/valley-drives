@@ -8,6 +8,8 @@ import 'react-native-gesture-handler'
 import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
 import MapScreen from './screens/MapScreen'
+import 'react-native-url-polyfill/auto'
+
 
 const App = () => {
     const Stack = createStackNavigator()

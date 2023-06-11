@@ -1,5 +1,5 @@
 ### Home Screen
-<img src="/assets/ss_home.png" width="250" />
+<img src="/assets/ss_home.png" width="500" />
 
 ### Tech Stack
 
@@ -8,4 +8,4 @@
 3. Redux
 4. Nativewind (TailwindCSS)
 5. Google Auth
-6. Firebase
+6. Sanity & GROQ 

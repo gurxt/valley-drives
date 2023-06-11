@@ -18,6 +18,12 @@ export default defineType({
             validation: (Rule) => Rule.required().email()
         },
         {
+            name: 'phone',
+            title: 'Phone Number',
+            type: 'string',
+            validation: (Rule) => Rule.required().length(10)
+        },
+        {
             name: 'password',
             title: 'Password',
             type: 'string', // [TODO] authentication.

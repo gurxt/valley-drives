@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, StatusBar } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_APIKEY } from '@env'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -7,21 +7,46 @@ import { Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
+import sanityClient from '../sanity'
+import { urlFor } from '../sanity'
 
-const valley = require('./../assets/valley.png')
+//const valley = require('./../assets/valley.png')
 const user_img = require("./../assets/female_01.png")
 
 const SearchScreen = () => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
+    const [userData, setUserData] = useState(null)
+
+    useEffect(() => {
+        const getUsers = async () => {
+            const users = await sanityClient.fetch(`
+                *[_type == 'user']{
+                    "id": _id,
+                    "avatar": avatar.asset._ref,
+                    name,
+                    email
+                }
+            `)
+            setUserData(users[1])
+        }
+
+        getUsers()
+    }, [])
+    
 
     return (
         <SafeAreaView className="flex-1 bg-black">
             <StatusBar />
             <View className="flex-1 justify-center items-center">
                 <View className="justify-center items-center">
-                    <Text className="text-white m-4 text-lg">Welcome, Tim Zoleta!</Text>
-                    <Image source={user_img} className="h-32 w-32 rounded-full" />
+                    <Text className="text-white m-4 text-lg">Welcome,  { userData?.name }!</Text>
+                    { userData?.avatar && (
+                        <Image 
+                            source={{ uri: urlFor(userData?.avatar) }} 
+                            className="h-32 w-32 rounded-full" 
+                        />
+                    )}
                 </View>
                 <View className="flex-1 w-full m-4">
                     <GooglePlacesAutocomplete
@@ -54,7 +79,6 @@ const SearchScreen = () => {
         </SafeAreaView>
     )
 }
-
 
 const googleStyles = StyleSheet.create({
     container: {
