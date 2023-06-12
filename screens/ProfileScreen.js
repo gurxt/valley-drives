@@ -8,6 +8,7 @@ import { BackgroundImage, Button } from '@rneui/base'
 import { Text } from 'react-native'
 
 const car = require('../assets/get_ride.png')
+const boat = require('../assets/get_boat_ride.png')
 const valley = require('../assets/valley.png')
 
 const ProfileScreen = () => {
@@ -34,7 +35,7 @@ const ProfileScreen = () => {
                             style={{ backgroundColor: "#80847e44"}} 
                             className="w-full justify-center items-center rounded-t-xl"
                         >
-                            <Text className="text-gray-900 text-lg font-light">GET RIDE</Text>
+                            <Text className="text-gray-900 text-lg font-light">CAR RIDE</Text>
                         </View>
                         <View>
                             <Button 
@@ -61,7 +62,7 @@ const ProfileScreen = () => {
                             style={{ backgroundColor: "#80847e44"}} 
                             className="w-full justify-center items-center rounded-t-xl"
                         >
-                            <Text className="text-gray-900 text-lg font-light">GET RIDE</Text>
+                            <Text className="text-gray-900 text-lg font-light">BOAT RIDE</Text>
                         </View>
                         <View>
                             <Button 
@@ -74,7 +75,7 @@ const ProfileScreen = () => {
                                 onPress={() => navigation.navigate('SearchScreen')}
                             >
                                 <Image 
-                                    source={car} 
+                                    source={boat} 
                                     className="w-32 h-32" 
                                 />
                             </Button>

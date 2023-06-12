@@ -3,7 +3,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Map from '../components/Map'
 import NavigateCard from '../components/NavigateCard'
-import RideOptionsCard from '../components/RideOptionsCard'
+import RideCard from '../components/RideCard'
 
 const MapScreen = () => {
     const Stack = createStackNavigator() 

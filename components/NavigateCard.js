@@ -33,7 +33,7 @@ const NavigateCard = () => {
                                     })
                                 ) 
 
-                                navigation.navigate("RideOptionsCard")
+                                navigation.navigate("RideCard")
                             }}
                             query={{
                                 key: GOOGLE_MAPS_APIKEY,
