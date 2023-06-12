@@ -24,7 +24,7 @@ const NavOptions = () => {
                 name,
                 email,
                 address
-            }[0]
+            }[2]
         `)
 
         dispatch(setInfo({...users}))

@@ -19,6 +19,7 @@ const App = () => {
     return (
         <Provider store={store}>
             <StatusBar style="dark" />
+
             <NavigationContainer>
                 <SafeAreaProvider>
                     <Stack.Navigator>
