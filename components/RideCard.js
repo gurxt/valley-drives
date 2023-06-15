@@ -10,7 +10,7 @@ const RideCard = () => {
     const SERVICE_FEE = 4.99
 
     return (
-        <View>
+        <View className="h-1/2">
             <Text>{ travelTimeInformation?.distance.text }</Text>
             <Text>{ travelTimeInformation?.duration.text }</Text>
             <Text>{ new Intl.NumberFormat('en-ca', {

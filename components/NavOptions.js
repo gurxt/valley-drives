@@ -36,7 +36,7 @@ const NavOptions = () => {
     
     return (
         <View style={{ flex: 1, backgroundColor: "#9fc9bc"}}>
-            <View className="flex-1 rounded m-2">
+            <View className="flex-1 rounded">
                 <Button 
                     type="outline" 
                     ViewComponent={LinearGradient}
@@ -58,11 +58,11 @@ const NavOptions = () => {
                         LOGIN
                     </Text>
                     <View className="w-20">
-                        <Icon color="white" name="login" />
+                        <Icon color="azure" name="login" />
                     </View>
                 </Button>
             </View>
-            <View className="flex-1 rounded m-2">
+            <View className="flex-1 rounded">
                 <Button 
                     type="outline" 
                     ViewComponent={LinearGradient}
@@ -87,7 +87,7 @@ const NavOptions = () => {
                     </View>
                 </Button>
             </View>
-            <View className="flex-1 rounded m-2">
+            <View className="flex-1 rounded">
                 <Button 
                     type="outline" 
                     ViewComponent={LinearGradient}
