@@ -5,10 +5,6 @@ import { Image, SafeAreaView } from 'react-native'
 import { PencilSquareIcon } from "react-native-heroicons/outline"
 
 const ProfileCard = ({ user }) => {
-    useEffect(() => {
-        console.log(user)
-    }, [])
-
     return (
         <SafeAreaView className="flex-1 w-full mt-10 mb-2 px-2">
             <View className="justify-center items-center p-4 rounded-lg">

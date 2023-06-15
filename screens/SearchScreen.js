@@ -6,12 +6,20 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
+import FavouritesCard from '../components/FavouritesCard'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const logo = require('../assets/logo.png')
 
 const SearchScreen = () => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
+    const [hide, setHide] = useState(null)
+
+    useEffect(() => {
+        
+    }, [hide])
 
     return (
         <SafeAreaView style={{ backgroundColor: "#9fc9bc", flex: 1 }}>
@@ -27,10 +35,14 @@ const SearchScreen = () => {
                         }}
                     />
                 </View>
-                <View className="w-full m-4">
+                <View className="flex-1 w-full mt-4">
                     <GooglePlacesAutocomplete
                         placeholder="Start Destination"
                         styles={googleStyles}
+                        textInputProps={{
+                            onPress: () => setHide(!hide),
+                            placeholderTextColor: "white"
+                        }}
                         onPress={(data, details = null) => {
                             dispatch(setOrigin({
                                 location: details.geometry.location,
@@ -55,25 +67,31 @@ const SearchScreen = () => {
                     />
                 </View>
             </View>
-            <View style={{ backgroundColor: "#80847e" }} className="h-2/3">
+            <View className="h-1/4">
+                <FavouritesCard hide={hide} />
             </View>
         </SafeAreaView>
     )
 }
 
 const googleStyles = StyleSheet.create({
-    container: {
-        paddingTop: 10,
-        flex: 0
-    },
     textInput: {
-        backgroundColor: "#DDD",
-        borderRadius: 10,
-        fontSize: 14
+        backgroundColor: "#80847e",
+        fontSize: 14,
+        color: "white"
     },
     textInputContainer: {
-        paddingHorizontal: 20,
-        paddingBottom: 20
+        paddingHorizontal: 10,
+    },
+    listView: {
+        paddingHorizontal: 10,
+    },
+    separator: {
+        backgroundColor: "#80847e",
+    },
+    row: {
+        backgroundColor: "none",
+        color: "white"
     }
 })
 
