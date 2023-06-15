@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { urlFor } from '../sanity'
 import { Image, SafeAreaView } from 'react-native'
 import { PencilSquareIcon } from "react-native-heroicons/outline"
@@ -18,7 +18,7 @@ const ProfileCard = ({ user }) => {
                 />
             </View>
             <View 
-                style={{ backgroundColor: "#9fc9bcdd" }}
+                style={{ backgroundColor: "#9fc9bc" }}
                 className="flex-1 w-full mt-2 rounded-lg"
             >
                 <View 

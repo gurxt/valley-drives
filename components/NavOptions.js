@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
 import { Button } from '@rneui/base'
 import { LinearGradient } from 'expo-linear-gradient'
