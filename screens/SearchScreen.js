@@ -23,8 +23,11 @@ const SearchScreen = () => {
 
     return (
         <SafeAreaView style={{ backgroundColor: "#9fc9bc", flex: 1 }}>
-            <View className="flex-1 items-center">
-                <View className="w-full">
+            <View backgroundColor="azure" className="flex-1 items-center">
+                <View 
+                    style={{ borderColor: "#80847e" }}
+                    className="w-full border-y-2"
+                >
                     <Image 
                         source={logo}
                         style={{
@@ -35,7 +38,7 @@ const SearchScreen = () => {
                         }}
                     />
                 </View>
-                <View className="flex-1 w-full mt-4">
+                <View backgroundColor="#9fc9bc" className="flex-1 w-full pt-4">
                     <GooglePlacesAutocomplete
                         placeholder="Start Destination"
                         styles={googleStyles}
@@ -67,7 +70,13 @@ const SearchScreen = () => {
                     />
                 </View>
             </View>
-            <View className="h-1/4">
+            <View 
+                style={{ 
+                    borderColor: "#80847e", 
+                    backgroundColor: "#80847eaa", 
+                }}
+                className="border-t-2 h-1/4"
+            >
                 <FavouritesCard hide={hide} />
             </View>
         </SafeAreaView>
@@ -90,8 +99,14 @@ const googleStyles = StyleSheet.create({
         backgroundColor: "#80847e",
     },
     row: {
-        backgroundColor: "none",
-        color: "white"
+        backgroundColor: "#0002",
+        marginBottom: 2
+    },
+    description: {
+        color: "azure",
+        textShadowColor: "rgba(0,0,0,0.5)",
+        textShadowOffset: { width: 1, height: 2},
+        textShadowRadius: 6
     }
 })
 

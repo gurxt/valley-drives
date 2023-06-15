@@ -28,7 +28,7 @@ const FavouritesCard = () => {
         },
         {
             id: "12345",
-            icon: <BriefcaseIcon size={30} color="azure" />,
+            icon: <BriefcaseIcon size={30} color="" />,
             location: "Work",
             destination: "6225 Millcreek Drive, Mississauga, ON, Canada"
         },
@@ -41,14 +41,14 @@ const FavouritesCard = () => {
             { simulate_data.map(item => (
                 <TouchableOpacity key={item.id} className="h-1/8 flex-row items-center">
                     <View 
-                        style={{ backgroundColor: "#80847e88" }}
+                        style={{ backgroundColor: "#9fc9bc" }}
                         className="mt-2 mx-2 rounded-lg bg-gray-300 p-3"
                     >
                     { item.icon }
                     </View>
                     <View className="">
-                        <Text className="text-gray-800">{ item.location }</Text>
-                        <Text className="text-gray-600">{ item.destination }</Text>
+                        <Text style={{ color: "azure" }}>{ item.location }</Text>
+                        <Text style={{ color: "azure" }}>{ item.destination }</Text>
                     </View>
                 </TouchableOpacity>
             ))}
