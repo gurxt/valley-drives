@@ -1,6 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
-import { Button, Image } from '@rneui/base'
+import { Button } from '@rneui/base'
 import { useNavigation } from '@react-navigation/native'
 
 const car = require('../assets/get_ride.png')

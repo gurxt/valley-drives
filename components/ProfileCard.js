@@ -1,10 +1,13 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { urlFor } from '../sanity'
 import { Image, SafeAreaView } from 'react-native'
 import { PencilSquareIcon } from "react-native-heroicons/outline"
 
 const ProfileCard = ({ user }) => {
+    useEffect(() => {
+        console.log(user)
+    }, [])
 
     return (
         <SafeAreaView className="flex-1 w-full mt-10 mb-2 px-2">

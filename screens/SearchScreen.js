@@ -6,7 +6,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
-import { KeyboardAvoidingView } from 'react-native'
 
 const logo = require('../assets/logo.png')
 
@@ -56,7 +55,7 @@ const SearchScreen = () => {
                     />
                 </View>
             </View>
-            <View style={{ backgroundColor: "#80847e" }} className="h-1/2">
+            <View style={{ backgroundColor: "#80847e" }} className="h-2/3">
             </View>
         </SafeAreaView>
     )

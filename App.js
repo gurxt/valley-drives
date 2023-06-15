@@ -11,6 +11,8 @@ import MapScreen from './screens/MapScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import 'react-native-url-polyfill/auto'
 import { StatusBar } from 'expo-status-bar'
+import { KeyboardAvoidingView } from 'react-native'
+import { Platform } from 'react-native'
 
 
 const App = () => {
@@ -22,36 +24,41 @@ const App = () => {
 
             <NavigationContainer>
                 <SafeAreaProvider>
-                    <Stack.Navigator>
-                        <Stack.Screen
-                            name="HomeScreen"
-                            component={HomeScreen}
-                            options={{
-                                headerShown: false
-                            }}
-                        />
-                        <Stack.Screen
-                            name="ProfileScreen"
-                            component={ProfileScreen}
-                            options={{
-                                headerShown: false
-                            }}
-                        />
-                        <Stack.Screen
-                            name="SearchScreen"
-                            component={SearchScreen}
-                            options={{
-                                headerShown: false
-                            }}
-                        />
-                        <Stack.Screen
-                            name="MapScreen"
-                            component={MapScreen}
-                            options={{
-                                headerShown: false
-                            }}
-                        />
-                    </Stack.Navigator>
+                    <KeyboardAvoidingView 
+                        className="flex-1"
+                        behavior={ Platform.OS === "ios" ? "padding" : "height" }
+                    >
+                        <Stack.Navigator>
+                            <Stack.Screen
+                                name="HomeScreen"
+                                component={HomeScreen}
+                                options={{
+                                    headerShown: false
+                                }}
+                            />
+                            <Stack.Screen
+                                name="ProfileScreen"
+                                component={ProfileScreen}
+                                options={{
+                                    headerShown: false
+                                }}
+                            />
+                            <Stack.Screen
+                                name="SearchScreen"
+                                component={SearchScreen}
+                                options={{
+                                    headerShown: false
+                                }}
+                            />
+                            <Stack.Screen
+                                name="MapScreen"
+                                component={MapScreen}
+                                options={{
+                                    headerShown: false
+                                }}
+                            />
+                        </Stack.Navigator>
+                    </KeyboardAvoidingView>
                 </SafeAreaProvider>
             </NavigationContainer>
         </Provider>
