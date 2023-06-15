@@ -4,16 +4,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import FavouritesCard from '../components/FavouritesCard'
 import MapSearch from '../components/MapSearch'
 
-const logo = require('../assets/logo.png')
-const valley = require('../assets/valley.png')
 
 const SearchScreen = () => {
+    const logo = require('../assets/logo.png')
+
     return (
-        <ImageBackground
-            className="flex-1"
-            source={valley}
-        >
-            <SafeAreaView style={{ backgroundColor: "#9fc9bcaa", flex: 1 }}>
+        <SafeAreaView className="flex-1">
+          
                 <View className="flex-1 items-center">
                     <View 
                         style={{ backgroundColor: "azure", borderColor: "#80847e" }}
@@ -29,19 +26,11 @@ const SearchScreen = () => {
                             }}
                         />
                     </View>
-                    <MapSearch option="destination" />
+                    <View backgroundColor="#9fc9bebb" className="flex-1 w-full">
+                        <MapSearch option="destination" />
+                    </View>
                 </View>
-                <View 
-                    style={{ 
-                        borderColor: "#80847e", 
-                        backgroundColor: "#80847eee", 
-                    }}
-                    className="border-t-2 h-1/4"
-                >
-                    <FavouritesCard />
-                </View>
-            </SafeAreaView>
-        </ImageBackground>
+        </SafeAreaView>
     )
 }
 

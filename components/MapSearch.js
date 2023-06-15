@@ -7,65 +7,84 @@ import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
 import { StyleSheet } from 'react-native'
 import { XMarkIcon } from 'react-native-heroicons/solid'
+import FavouritesCard from './FavouritesCard'
+import { ImageBackground } from 'react-native'
 
 const MapSearch = ({ option }) => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const searchTextRef = useRef(null)
+    const valley = require("../assets/valley.png")
 
     return (
-        <View backgroundColor="#9fc9bebb" className="flex-1 w-full pt-4">
-            <GooglePlacesAutocomplete
-                placeholder={ option ? 'Start Destination' : 'End Destination' }
-                renderRightButton={() => (
-                    <View style={googleStyles.button}>
-                        <XMarkIcon 
-                            size={20} 
-                            color="azure" 
-                            onPress={() => searchTextRef.current.clear()}
-                        />
-                    </View>
-                )}
-                styles={googleStyles}
-                textInputProps={{
-                    ref: searchTextRef,
-                    placeholderTextColor: "azure"
-                }}
-                onPress={(data, details = null) => {
-                    if (option === "destination") {
-                        dispatch(
-                            setOrigin({
-                                location: details.geometry.location,
-                                description: data.description
-                            })
-                        )
+        <ImageBackground
+            source={valley}
+            className="flex-1"
+        >
+            <View backgroundColor="#9fc9bebb" className="flex-1 pt-4">
+                <View className="flex-1 w-full">
+                    <GooglePlacesAutocomplete
+                        placeholder={ option ? 'Start Destination' : 'End Destination' }
+                        renderRightButton={() => (
+                            <View style={googleStyles.button}>
+                                <XMarkIcon 
+                                    size={20} 
+                                    color="azure" 
+                                    onPress={() => searchTextRef.current.clear()}
+                                />
+                            </View>
+                        )}
+                        styles={googleStyles}
+                        textInputProps={{
+                            ref: searchTextRef,
+                            placeholderTextColor: "azure"
+                        }}
+                        onPress={(data, details = null) => {
+                            if (option === "destination") {
+                                dispatch(
+                                    setOrigin({
+                                        location: details.geometry.location,
+                                        description: data.description
+                                    })
+                                )
 
-                        dispatch(setDestination(null))
-                        navigation.navigate("MapScreen")
-                    } else {
-                        dispatch(
-                            setDestination({
-                                location: details.geometry.location,
-                                description: data.description
-                            })
-                        )
-                        navigation.navigate("RideCard")
-                    }
-                }}
-                query={{
-                    key: GOOGLE_MAPS_APIKEY,
-                    language: "en",
-                    components: "country:ca"
-                }}
-                nearbyPlacesAPI="GooglePlacesSearch"
-                debounce={400}
-                enablePoweredByContainer={false}
-                minLength={3}
-                fetchDetails={true}
-                returnKeyType={"search"}
-            />
-        </View>
-        )
+                                dispatch(setDestination(null))
+                                navigation.navigate("MapScreen")
+                            } else {
+                                dispatch(
+                                    setDestination({
+                                        location: details.geometry.location,
+                                        description: data.description
+                                    })
+                                )
+                                navigation.navigate("RideCard")
+                            }
+                        }}
+                        query={{
+                            key: GOOGLE_MAPS_APIKEY,
+                            language: "en",
+                            components: "country:ca"
+                        }}
+                        nearbyPlacesAPI="GooglePlacesSearch"
+                        debounce={400}
+                        enablePoweredByContainer={false}
+                        minLength={3}
+                        fetchDetails={true}
+                        returnKeyType={"search"}
+                    />
+                </View>
+                <View 
+                    style={{ 
+                        borderColor: "#80847e", 
+                        backgroundColor: "#80847eee", 
+                    }}
+                    className="border-t-2 h-1/3"
+                >
+                    <FavouritesCard />
+                </View>
+            </View>
+        </ImageBackground>
+    )
 }
 
 const googleStyles = StyleSheet.create({
