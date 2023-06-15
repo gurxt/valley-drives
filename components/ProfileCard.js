@@ -18,7 +18,7 @@ const ProfileCard = ({ user }) => {
                 />
             </View>
             <View 
-                style={{ backgroundColor: "#9fc9bc" }}
+                style={{ backgroundColor: "#9fc9bcdd" }}
                 className="flex-1 w-full mt-2 rounded-lg"
             >
                 <View 

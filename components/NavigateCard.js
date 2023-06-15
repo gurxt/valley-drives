@@ -14,35 +14,30 @@ const NavigateCard = () => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#9fc9bc"}}>
-            <Text className="text-gray-900 text-center py-5 text-xl">Good morning, Timothy!</Text>
-                <View>
-                    <View>
-                        <GooglePlacesAutocomplete 
-                            styles={googleStyles}
-                            placeholder="Enter destination"
-                            nearbyPlacesAPI="GooglePlacesSearch"
-                            debounce={400}
-                            fetchDetails={true}
-                            enablePoweredByContainer={false}
-                            returnKeyType={"search"}
-                            onPress={(data, details = null) => {
-                                dispatch(
-                                    setDestination({
-                                        location: details.geometry.location,
-                                        description: data.description
-                                    })
-                                ) 
+            <GooglePlacesAutocomplete 
+                styles={googleStyles}
+                placeholder="Enter destination"
+                nearbyPlacesAPI="GooglePlacesSearch"
+                debounce={400}
+                fetchDetails={true}
+                enablePoweredByContainer={false}
+                returnKeyType={"search"}
+                onPress={(data, details = null) => {
+                    dispatch(
+                        setDestination({
+                            location: details.geometry.location,
+                            description: data.description
+                        })
+                    ) 
 
-                                navigation.navigate("RideCard")
-                            }}
-                            query={{
-                                key: GOOGLE_MAPS_APIKEY,
-                                language: "en",
-                                components: "country:ca"
-                            }}
-                        /> 
-                    </View>
-                </View>
+                    navigation.navigate("RideCard")
+                }}
+                query={{
+                    key: GOOGLE_MAPS_APIKEY,
+                    language: "en",
+                    components: "country:ca"
+                }}
+            /> 
         </SafeAreaView>
     )
 }

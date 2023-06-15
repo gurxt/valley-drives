@@ -28,7 +28,7 @@ const FavouritesCard = () => {
         },
         {
             id: "12345",
-            icon: <BriefcaseIcon size={30} color="" />,
+            icon: <BriefcaseIcon size={30} color="azure" />,
             location: "Work",
             destination: "6225 Millcreek Drive, Mississauga, ON, Canada"
         },
@@ -36,10 +36,10 @@ const FavouritesCard = () => {
 
     return (
         <ScrollView
-            className="mb-2"
+            className="mb-2 mt-1"
         >
             { simulate_data.map(item => (
-                <TouchableOpacity key={item.id} className="h-1/8 flex-row items-center">
+                <TouchableOpacity key={item.id} className="pb-1 h-1/8 flex-row items-center">
                     <View 
                         style={{ backgroundColor: "#9fc9bc" }}
                         className="mt-2 mx-2 rounded-lg bg-gray-300 p-3"
