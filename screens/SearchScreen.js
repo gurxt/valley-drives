@@ -29,7 +29,7 @@ const SearchScreen = () => {
                             }}
                         />
                     </View>
-                    <MapSearch />
+                    <MapSearch option="destination" />
                 </View>
                 <View 
                     style={{ 

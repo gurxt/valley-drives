@@ -2,8 +2,8 @@ import { View } from 'react-native'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Map from '../components/Map'
-import NavigateCard from '../components/NavigateCard'
 import RideCard from '../components/RideCard'
+import MapSearch from '../components/MapSearch'
 
 const MapScreen = () => {
     const Stack = createStackNavigator() 
@@ -16,8 +16,8 @@ const MapScreen = () => {
             <View className="h-1/2">
                 <Stack.Navigator>
                     <Stack.Screen
-                        name="NavigateCard" 
-                        component={NavigateCard}
+                        name="MapSearch" 
+                        component={MapSearch}
                         options={{
                             headerShown: false
                         }}

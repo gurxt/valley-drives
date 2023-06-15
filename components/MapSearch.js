@@ -7,27 +7,38 @@ import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
 import { StyleSheet } from 'react-native'
 
-const MapSearch = () => {
+const MapSearch = ({ option }) => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
 
     return (
         <View backgroundColor="#9fc9bebb" className="flex-1 w-full pt-4">
             <GooglePlacesAutocomplete
-                placeholder="Start Destination"
+                placeholder={ option ? 'Start Destination' : 'End Destination' }
                 styles={googleStyles}
                 textInputProps={{
                     placeholderTextColor: "white"
                 }}
                 onPress={(data, details = null) => {
-                    dispatch(setOrigin({
-                        location: details.geometry.location,
-                        description: data.description 
-                    }))
+                    if (option === "destination") {
+                        dispatch(
+                            setOrigin({
+                                location: details.geometry.location,
+                                description: data.description
+                            })
+                        )
 
-                    dispatch(setDestination(null))
-
-                    navigation.navigate("MapScreen")
+                        dispatch(setDestination(null))
+                        navigation.navigate("MapScreen")
+                    } else {
+                        dispatch(
+                            setDestination({
+                                location: details.geometry.location,
+                                description: data.description
+                            })
+                        )
+                        navigation.navigate("RideCard")
+                    }
                 }}
                 query={{
                     key: GOOGLE_MAPS_APIKEY,
