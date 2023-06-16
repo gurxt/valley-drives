@@ -44,9 +44,7 @@ const FavouritesCard = ({ option, handlePress }) => {
     ]
 
     return (
-        <ScrollView
-            className="mb-2 mt-1"
-        >
+        <ScrollView className="mb-2 mt-1">
             { simulate_data.map(item => (
                 <TouchableOpacity 
                     key={item.id} 
@@ -60,7 +58,7 @@ const FavouritesCard = ({ option, handlePress }) => {
                     { item.icon }
                     </View>
                     <View className="">
-                        <Text style={{ color: "azure" }}>{ item.location }</Text>
+                        <Text style={{ color: "azure" }} className="text-lg">{ item.location }</Text>
                         <Text style={{ color: "azure" }}>{ item.description }</Text>
                     </View>
                 </TouchableOpacity>
