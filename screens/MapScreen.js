@@ -1,11 +1,9 @@
-import { View, SafeAreaView, ImageBackground } from 'react-native'
+import { View, SafeAreaView } from 'react-native'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Map from '../components/Map'
 import RideCard from '../components/RideCard'
 import MapSearch from '../components/MapSearch'
-
-
 
 const MapScreen = () => {
     const Stack = createStackNavigator() 

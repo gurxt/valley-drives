@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image } from 'react-native'
+import { View, SafeAreaView, Image } from 'react-native'
 import React from 'react'
 import NavOptions from '../components/NavOptions'
 
@@ -23,7 +23,8 @@ const HomeScreen = () => {
                         width: "100%", 
                         height: 100, 
                         margin: 0, 
-                        resizeMode: "cover"
+                        resizeMode: "cover",
+                        backgroundColor: "azure"
                     }}
                 />
             </View>
