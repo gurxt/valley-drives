@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React, { useEffect } from 'react'
+import React  from 'react'
 import { selectDestination, selectOrigin, selectTravelTimeInformation } from '../slices/navSlice'
 import { useSelector } from 'react-redux'
 import { ArrowsUpDownIcon, MapIcon, ClockIcon, CurrencyDollarIcon } from 'react-native-heroicons/solid'
@@ -14,12 +14,11 @@ const RideCard = () => {
     const CHARGE_RATE = 1.5
     const SERVICE_FEE = 4.99
 
-
     return (
         <View backgroundColor="azure" className="flex-1">
             <View 
                 style={{ backgroundColor: "azure", borderColor: "#80847e" }}
-                className="w-full border-y-2"
+                className="w-full border-b-2"
             >
                 <Image 
                     source={logo}
@@ -67,7 +66,7 @@ const RideCard = () => {
                         <ClockIcon size={20} color="azure" />
                     </View>
                 </View>
-                <View backgroundColor="#80847ebb" className="flex-row w-full p-2 mt-2 items-center rounded-lg">
+                <View backgroundColor="#80847ebb" className="flex-row w-full p-2 my-2 items-center rounded-lg">
                     <View className="flex-row items-center">
                         <Text className="text-base font-bold text-white">
                         { new Intl.NumberFormat('en-ca', {

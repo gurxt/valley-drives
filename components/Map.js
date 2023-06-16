@@ -45,6 +45,7 @@ const Map = () => {
             style={{flex: 1}}
             ref={mapRef}
             mapType="mutedStandard"
+            legalLabelInsets={{ bottom: 200, right: 200 }}
             initialRegion={{
                 latitude: origin?.location?.lat,
                 longitude: origin?.location?.lng,

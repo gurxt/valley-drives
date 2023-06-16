@@ -14,6 +14,27 @@ const MapSearch = ({ option }) => {
     const navigation = useNavigation()
     const searchTextRef = useRef(null)
 
+    const handlePress = (data, details) => {
+        if (option === "destination") {
+            dispatch(
+                setOrigin({
+                    location: details.geometry.location,
+                    description: data.description
+                })
+            )
+            dispatch(setDestination(null))
+            navigation.navigate("MapScreen")
+        } else {
+            dispatch(
+                setDestination({
+                    location: details.geometry.location,
+                    description: data.description
+                })
+            )
+            navigation.navigate("RideCard")
+        }
+    }
+
     return (
         <View backgroundColor="#9fc9becc" className="flex-1 pt-4">
             <View className="flex-1 w-full">
@@ -33,27 +54,7 @@ const MapSearch = ({ option }) => {
                         ref: searchTextRef,
                         placeholderTextColor: "azure"
                     }}
-                    onPress={(data, details = null) => {
-                        if (option === "destination") {
-                            dispatch(
-                                setOrigin({
-                                    location: details.geometry.location,
-                                    description: data.description
-                                })
-                            )
-
-                            dispatch(setDestination(null))
-                            navigation.navigate("MapScreen")
-                        } else {
-                            dispatch(
-                                setDestination({
-                                    location: details.geometry.location,
-                                    description: data.description
-                                })
-                            )
-                            navigation.navigate("RideCard")
-                        }
-                    }}
+                    onPress={(data, details = null) => handlePress(data, details)}
                     query={{
                         key: GOOGLE_MAPS_APIKEY,
                         language: "en",
@@ -74,7 +75,7 @@ const MapSearch = ({ option }) => {
                 }}
                 className="border-t-2 h-1/3"
             >
-                <FavouritesCard />
+                <FavouritesCard option={option} handlePress={handlePress} />
             </View>
         </View>
     )
