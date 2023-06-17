@@ -12,14 +12,14 @@ const RideOptionsCard = () => {
     return (
         <View className="w-full flex-row justify-center px-3 mb-2">
             <View 
-                style={{ backgroundColor: "azure" }}
-                className="w-1/2 mr-1 rounded-xl"
+                style={{ borderColor: "#80847e33", backgroundColor: "azure" }}
+                className="border-2 w-1/2 mr-1 rounded-xl"
             >
                 <View 
                     style={{ backgroundColor: "#9fc9becc"}} 
-                    className="w-full justify-center items-center rounded-t-xl"
+                    className="w-full justify-center items-center rounded-t-lg"
                 >
-                    <Text className="text-gray-900 text-lg font-light">CAR RIDE</Text>
+                    <Text className="text-lg font-light">CAR RIDE</Text>
                 </View>
                 <View>
                     <Button 
@@ -39,12 +39,12 @@ const RideOptionsCard = () => {
                 </View>
             </View>
             <View 
-                style={{ backgroundColor: "azure" }}
-                className="w-1/2 ml-1 rounded-xl"
+                style={{ borderColor: "#80847e33", backgroundColor: "azure" }}
+                className="border-2 w-1/2 ml-1 rounded-xl"
             >
                 <View 
                     style={{ backgroundColor: "#9fc9becc"}} 
-                    className="w-full justify-center items-center rounded-t-xl"
+                    className="w-full justify-center items-center rounded-t-lg"
                 >
                     <Text className="text-gray-900 text-lg font-light">BOAT RIDE</Text>
                 </View>

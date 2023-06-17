@@ -4,13 +4,16 @@ import { TouchableOpacity } from 'react-native'
 import { StarIcon } from 'react-native-heroicons/solid'
 import { urlFor } from '../sanity'
 
-const TaxiOptionsCard = ({ taxiInformation, handleTaxiSwap }) => {
+const TaxiOptionsCard = ({ selectedTaxi, taxiInformation, handleTaxiSwap }) => {
     return (
         <ScrollView horizontal className="w-full flex-1 my-2">
             { taxiInformation?.map((taxi, idx) => (
                 <TouchableOpacity 
-                    style={{ borderColor: "#80847e", backgroundColor: "azure" }}
-                    className="mx-1 border-2 border-r-4 border-b-4 rounded-xl" 
+                    style={{ 
+                        borderColor: selectedTaxi.name === taxi.name ? "#9fc9bc" : "#80847e99",
+                        backgroundColor: selectedTaxi.name === taxi.name ? "#9fc9bc77" : "azure",
+                    }}
+                    className="mx-1 border-2 rounded-xl" 
                     key={taxi.name} 
                     onPress={() => handleTaxiSwap(idx)}
                 >

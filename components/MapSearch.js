@@ -44,7 +44,7 @@ const MapSearch = ({ option }) => {
                         <View style={googleStyles.button}>
                             <XMarkIcon 
                                 size={20} 
-                                color="azure" 
+                                color="black" 
                                 onPress={() => searchTextRef.current.clear()}
                             />
                         </View>
@@ -52,7 +52,7 @@ const MapSearch = ({ option }) => {
                     styles={googleStyles}
                     textInputProps={{
                         ref: searchTextRef,
-                        placeholderTextColor: "azure"
+                        placeholderTextColor: "black"
                     }}
                     onPress={(data, details = null) => handlePress(data, details)}
                     query={{
@@ -83,10 +83,12 @@ const MapSearch = ({ option }) => {
 
 const googleStyles = StyleSheet.create({
     textInput: {
-        backgroundColor: "#80847e",
+        backgroundColor: "azure",
         fontSize: 14,
-        color: "white",
+        color: "black",
         height: "100%",
+        borderWidth: 1,
+        borderColor: "#80847e88",
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,
         borderBottomRightRadius: 0,
@@ -106,10 +108,7 @@ const googleStyles = StyleSheet.create({
         marginBottom: 2
     },
     description: {
-        color: "azure",
-        textShadowColor: "rgba(0,0,0,0.5)",
-        textShadowOffset: { width: 1, height: 2},
-        textShadowRadius: 6
+        color: "black",
     },
     button: {
         borderBottomRightRadius: 5,
@@ -117,7 +116,7 @@ const googleStyles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         width: "10%",
-        backgroundColor: "#80847eaa",
+        backgroundColor: "#80847e88",
     }
 })
 

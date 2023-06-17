@@ -10,7 +10,7 @@ const ProfileCard = ({ user }) => {
             <View className="justify-center items-center p-4 rounded-lg">
                 <Text className="text-gray-900 m-2 text-lg">
                     <Text className="font-thin">Welcome, </Text>
-                    <Text className="font-bold">{ user?.name }!</Text>
+                    <Text className="font-base">{ user?.name }!</Text>
                 </Text>
                 <Image
                     source={{ uri: urlFor(user?.avatar) }} 
@@ -18,23 +18,26 @@ const ProfileCard = ({ user }) => {
                 />
             </View>
             <View 
-                style={{ backgroundColor: "azure" }}
-                className="flex-1 w-full mt-2 rounded-lg"
+                style={{ 
+                    backgroundColor: "azure",
+                    borderColor: "#80847e33"
+                }}
+                className="flex-1 w-full mt-2 rounded-lg border-2"
             >
                 <View 
                     style={{ backgroundColor: "#9fc9becc"}} 
-                    className="w-full flex-row justify-center items-center h-10 rounded-t-lg "
+                    className="w-full flex-row justify-center items-center h-10 rounded-t "
                 >
-                    <Text className="w-full absolute text-center flex-1 text-gray-900 text-lg font-light">Account Information</Text>
+                    <Text className="w-full absolute text-center flex-1 text-gray-900 text-lg font-light uppercase">
+                        Account Information
+                    </Text>
                     <View className="w-full items-end pr-2">
                         <PencilSquareIcon 
                             name="edit" 
                             size={24} 
-                            color="azure" 
+                            color="black" 
                         />
                     </View>
-                </View>
-                <View>
                 </View>
             </View>
         </SafeAreaView>
