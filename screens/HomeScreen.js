@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import NavOptions from '../components/NavOptions'
 import { useDispatch } from 'react-redux'
 import client from '../sanity'
-import { setTaxiInformation } from '../slices/taxiSlice'
+import { setSelectedTaxi, setTaxiInformation } from '../slices/taxiSlice'
 
 const logo = require('./../assets/logo.png')
 const banner = require('./../assets/banner.png')
@@ -26,7 +26,9 @@ const HomeScreen = () => {
                         "logo": logo.asset._ref
                     }
                 `)
-            dispatch(setTaxiInformation(data.sort((x, y) => y.rating - x.rating)))
+            const sortedData = data.sort((x,y) => y.rating - x.rating)
+            dispatch(setTaxiInformation(sortedData))
+            dispatch(setSelectedTaxi(sortedData[0]))
         }
         getTaxiData()
     }, [])

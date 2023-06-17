@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Map from '../components/Map'
 import RideCard from '../components/RideCard'
 import MapSearch from '../components/MapSearch'
+import OrderCard from '../components/OrderCard'
 
 const MapScreen = () => {
     const Stack = createStackNavigator() 
@@ -23,6 +24,11 @@ const MapScreen = () => {
                     <Stack.Screen
                         name="RideCard" 
                         component={RideCard}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                        name="OrderCard" 
+                        component={OrderCard}
                         options={{ headerShown: false }}
                     />
                 </Stack.Navigator>
