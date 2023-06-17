@@ -31,15 +31,15 @@ const TaxiOptionsCard = ({ selectedTaxi, taxiInformation, handleTaxiSwap }) => {
                             <StarIcon size={20} color={taxi.theme} />
                         </View>
                     </View>
-                    <View className="flex-1 justify-center items-center">
+                    <View className="flex-1 items-center">
                         <Image 
                             source={{ uri: urlFor(taxi.logo) }}
-                            className="h-32 w-40 self-center"
+                            className="h-32 w-40"
                             resizeMode="contain"
                         />
                     </View>
-                    <Text style={{ borderBottomColor: "#80847e99" }} className="mx-1 border-b-2"></Text>
-                    <View className=" rounded-b-xl p-1">
+                    <View style={{ borderBottomColor: "#80847e99" }} className="mx-1 border-b-2"></View>
+                    <View className="rounded-b-xl p-1">
                         <Text style={{ color: `${taxi.theme}`}}>
                             Rate:&nbsp; 
                             {   new Intl.NumberFormat('en-ca', {
@@ -47,6 +47,14 @@ const TaxiOptionsCard = ({ selectedTaxi, taxiInformation, handleTaxiSwap }) => {
                                     currency: 'CAD'
                                 }).format(taxi.rate)
                             }/m
+                        </Text>
+                        <Text style={{ color: `${taxi.theme}`}}>
+                            Fee:&nbsp; 
+                            {   new Intl.NumberFormat('en-ca', {
+                                    style: 'currency',
+                                    currency: 'CAD'
+                                }).format(taxi.fee)
+                            }
                         </Text>
                     </View>
                 </TouchableOpacity>
