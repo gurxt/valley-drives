@@ -6,6 +6,7 @@ import { selectDestination, selectOrigin, selectTravelTimeInformation } from '..
 import RideInformation from './RideInformation'
 import PaymentOptions from './PaymentOptions'
 import { CheckIcon } from 'react-native-heroicons/solid'
+import { useNavigation } from '@react-navigation/native'
 
 
 const OrderCard = () => {
@@ -13,6 +14,7 @@ const OrderCard = () => {
     const travelTimeInformation = useSelector(selectTravelTimeInformation)
     const origin = useSelector(selectOrigin)
     const destination = useSelector(selectDestination)
+    const navigation = useNavigation()
 
     // sample saved payments
     const payments = [
@@ -59,11 +61,11 @@ const OrderCard = () => {
                 <TouchableOpacity
                     style={{ backgroundColor: "#80847e33" }} 
                     className="h-14 mb-2 w-full rounded-lg flex-row items-center"
-                    onPress={() => alert("Payment")}
+                    onPress={() => navigation.navigate("JourneyScreen")}
                 >
-                    <Text className="text-color-900 uppercase font-light p-3 text-lg">Place Order</Text>
+                    <Text className="text-color-900 uppercase font-light p-3 text-base">Place Order</Text>
                     <View className="flex-1 items-end justify-center pr-2">
-                        <CheckIcon size={30} color="black" />
+                        <CheckIcon size={25} color="black" />
                     </View>
                 </TouchableOpacity>
             </View>

@@ -13,6 +13,7 @@ import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
 import MapScreen from './screens/MapScreen'
 import ProfileScreen from './screens/ProfileScreen'
+import JourneyScreen from './screens/JourneyScreen'
 
 const App = () => {
     const Stack = createStackNavigator()
@@ -51,6 +52,13 @@ const App = () => {
                             <Stack.Screen
                                 name="MapScreen"
                                 component={MapScreen}
+                                options={{
+                                    headerShown: false
+                                }}
+                            />
+                            <Stack.Screen
+                                name="JourneyScreen"
+                                component={JourneyScreen}
                                 options={{
                                     headerShown: false
                                 }}
