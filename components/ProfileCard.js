@@ -18,11 +18,11 @@ const ProfileCard = ({ user }) => {
                 />
             </View>
             <View 
-                style={{ backgroundColor: "#9fc9bc" }}
+                style={{ backgroundColor: "azure" }}
                 className="flex-1 w-full mt-2 rounded-lg"
             >
                 <View 
-                    style={{ backgroundColor: "#80847e44"}} 
+                    style={{ backgroundColor: "#9fc9becc"}} 
                     className="w-full flex-row justify-center items-center h-10 rounded-t-lg "
                 >
                     <Text className="w-full absolute text-center flex-1 text-gray-900 text-lg font-light">Account Information</Text>

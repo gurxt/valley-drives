@@ -8,7 +8,7 @@ const SearchScreen = () => {
     const logo = require('../assets/logo.png')
 
     return (
-        <SafeAreaView className="flex-1" backgroundColor="#9fc9be">
+        <SafeAreaView className="flex-1" backgroundColor="azure">
             <View className="flex-1 items-center pt-2">
                 <View 
                     style={{ backgroundColor: "azure", borderColor: "#80847e" }}
@@ -24,7 +24,7 @@ const SearchScreen = () => {
                         }}
                     />
                 </View>
-                <View backgroundColor="#9fc9becc" className="flex-1 w-full">
+                <View backgroundColor="azure" className="flex-1 w-full">
                     <MapSearch option="destination" />
                 </View>
             </View>

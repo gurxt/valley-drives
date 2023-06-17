@@ -12,11 +12,11 @@ const RideOptionsCard = () => {
     return (
         <View className="w-full flex-row justify-center px-3 mb-2">
             <View 
-                style={{ backgroundColor: "#9fc9bc" }}
-                className="w-1/2 mr-1 rounded-lg"
+                style={{ backgroundColor: "azure" }}
+                className="w-1/2 mr-1 rounded-xl"
             >
                 <View 
-                    style={{ backgroundColor: "#80847e44"}} 
+                    style={{ backgroundColor: "#9fc9becc"}} 
                     className="w-full justify-center items-center rounded-t-xl"
                 >
                     <Text className="text-gray-900 text-lg font-light">CAR RIDE</Text>
@@ -39,11 +39,11 @@ const RideOptionsCard = () => {
                 </View>
             </View>
             <View 
-                style={{ backgroundColor: "#9fc9bc" }}
-                className="w-1/2 ml-1 rounded-lg"
+                style={{ backgroundColor: "azure" }}
+                className="w-1/2 ml-1 rounded-xl"
             >
                 <View 
-                    style={{ backgroundColor: "#80847e44"}} 
+                    style={{ backgroundColor: "#9fc9becc"}} 
                     className="w-full justify-center items-center rounded-t-xl"
                 >
                     <Text className="text-gray-900 text-lg font-light">BOAT RIDE</Text>

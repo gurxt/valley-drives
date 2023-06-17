@@ -1,26 +1,32 @@
 import { View, Text } from 'react-native'
-import React  from 'react'
+import React, { useEffect, useState } from 'react'
 import { selectDestination, selectOrigin, selectTravelTimeInformation } from '../slices/navSlice'
 import { useSelector } from 'react-redux'
-import { ArrowsUpDownIcon, MapIcon, ClockIcon, CurrencyDollarIcon } from 'react-native-heroicons/solid'
+import { ArrowsUpDownIcon, MapIcon, ClockIcon, CurrencyDollarIcon, ArrowLongRightIcon } from 'react-native-heroicons/solid'
 import TaxiOptionsCard from './TaxiOptionsCard'
+import { selectTaxiInformation, setTaxiInformation } from '../slices/taxiSlice'
+import { TouchableOpacity } from 'react-native'
 
 const RideCard = () => {
     const travelTimeInformation = useSelector(selectTravelTimeInformation)
     const origin = useSelector(selectOrigin)
     const destination = useSelector(selectDestination)
+    const taxiInformation = useSelector(selectTaxiInformation)
 
-    const CHARGE_RATE = 1.5
-    const SERVICE_FEE = 4.99
+    const [selectedTaxi, setSelectedTaxi] = useState(taxiInformation[0])
+
+    const handleTaxiSwap = (idx) => setSelectedTaxi(taxiInformation[idx])
 
     return (
         <View backgroundColor="azure" className="flex-1">
-            <View borderColor="#80847e" backgroundColor="#9fc9becc" className="px-2 pb-2 border-b-2">
+            <View borderColor="#80847e" backgroundColor="azure" className="px-2 pb-2 border-b-2">
                 <View backgroundColor="azure" className="justify-center rounded-lg mt-2">
-                    <Text style={{color: "#80847e"}} className="text-xl font-lightp py-1 text-center">Ride Information</Text>
+                    <Text style={{color: "#80847e"}} className="text-xl font-lightp py-1 text-center">
+                        { selectedTaxi?.name }
+                    </Text>
                 </View>
                 <View backgroundColor="#80847ebb" className="flex-row w-full p-2 mt-2 items-center rounded-lg">
-                    <View className="">
+                    <View>
                         <Text style={{color: "azure"}} className="uppercase font-light text-m">
                             { origin?.description.split(',')[0]}
                         </Text>
@@ -61,9 +67,9 @@ const RideCard = () => {
                                 currency: 'CAD'
                             }).format(
                                 travelTimeInformation?.duration.value *
-                                CHARGE_RATE /
+                                selectedTaxi?.rate /
                                 100 +
-                                SERVICE_FEE
+                                selectedTaxi?.fee
                             )}
                         </Text>
                     </View>
@@ -71,9 +77,20 @@ const RideCard = () => {
                         <CurrencyDollarIcon size={20} color="azure" />
                     </View>
                 </View>
+                <View>
+                    <TouchableOpacity 
+                        style={{ backgroundColor: "#9fc9be" }} 
+                        className="w-full rounded-lg flex-row"
+                    >
+                        <Text style={{ color: "#80847e" }} className="uppercase font-bold p-3 text-base">Review Order</Text>
+                        <View className="flex-1 items-end justify-center pr-2">
+                            <ArrowLongRightIcon size={20} color="#80847e" />
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View className="flex-1" backgroundColor="azure">
-                <TaxiOptionsCard />
+            <View className="flex-1" backgroundColor="#9fc9becc">
+                <TaxiOptionsCard taxiInformation={taxiInformation} handleTaxiSwap={handleTaxiSwap} />
             </View>
         </View>
     )

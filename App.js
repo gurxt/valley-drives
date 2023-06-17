@@ -14,7 +14,6 @@ import { StatusBar } from 'expo-status-bar'
 import { KeyboardAvoidingView } from 'react-native'
 import { Platform } from 'react-native'
 
-
 const App = () => {
     const Stack = createStackNavigator()
 

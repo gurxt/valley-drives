@@ -36,7 +36,7 @@ const MapSearch = ({ option }) => {
     }
 
     return (
-        <View backgroundColor="#9fc9becc" className="flex-1 pt-4">
+        <View backgroundColor="azure" className="flex-1 pt-4">
             <View className="flex-1 w-full">
                 <GooglePlacesAutocomplete
                     placeholder={ option ? 'Start Destination' : 'End Destination' }
@@ -102,7 +102,7 @@ const googleStyles = StyleSheet.create({
         backgroundColor: "#80847e",
     },
     row: {
-        backgroundColor: "#0002",
+        backgroundColor: "#9fc9becc",
         marginBottom: 2
     },
     description: {
