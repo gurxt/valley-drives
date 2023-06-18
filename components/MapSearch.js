@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native'
-import React, { useRef, useState, useEffect } from 'react'
+import { View, Text, Switch } from 'react-native'
+import React, { useRef, useState } from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,13 +9,32 @@ import { StyleSheet } from 'react-native'
 import { XMarkIcon, MapPinIcon } from 'react-native-heroicons/solid'
 import FavouritesCard from './FavouritesCard'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { selectLocation } from '../slices/userSlice'
+import { selectLocation, setLocation } from '../slices/userSlice'
+import { getPermissions } from '../scripts/geocoding'
+import * as Progress from 'react-native-progress'
 
 const MapSearch = ({ option }) => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const searchTextRef = useRef(null)
     const location = useSelector(selectLocation)
+    const [loading, setLoading] = useState(false)
+    const [toggle, setToggle] = useState(false)
+
+    const setUserLocation = async () => {
+        const { currentLocation, address } = await getPermissions()
+        setTimeout(async () => {
+            if (address) {
+                dispatch(setLocation({
+                    address: address,
+                    coords: {
+                        latitude: currentLocation.coords.latitude,
+                        longitude: currentLocation.coords.longitude
+                    }
+                }))
+            }
+        }, 2500)
+    }
 
     const handlePress = (data, details) => {
         if (option === "destination") {
@@ -39,8 +58,17 @@ const MapSearch = ({ option }) => {
     }
 
     return (
-        <View backgroundColor="azure" className="flex-1 pt-4">
-            <View className="flex-1 w-full">
+        <View backgroundColor="azure" className="flex-1">
+            <View className="h-10 flex-row w-full items-start ml-2">
+                <Switch
+                    trackColor={{ false: "#80847e", true: "#9fc9bc"}} 
+                    thumbColor={ toggle ? "#80847e" : "#9fc9bc" }
+                    value={toggle}
+                    onValueChange={() => setToggle(!toggle)}
+                    style={{ transform: [{ scaleX: 1.25 }, { scaleY: 1.25 }]}}
+                />
+            </View>
+            <View className="flex-1 w-full mt-2">
                 <GooglePlacesAutocomplete
                     placeholder={ option ? 'Start Destination' : 'End Destination' }
                     renderRightButton={() => (
@@ -71,7 +99,35 @@ const MapSearch = ({ option }) => {
                     returnKeyType={"search"}
                 />
                 { !location && (
-                    <Text>Hello</Text>
+                    <TouchableOpacity
+                        onPress={() => {
+                            setLoading(true)
+                            setUserLocation()
+                        }}
+                        className="w-full items-center justify-center p-2 mt-1"
+                    >
+                        { !loading && (
+                            <View 
+                                style={{ backgroundColor: "#80847e33"}}
+                                className="items-center justify-center w-full flex-row p-2 rounded-lg"
+                            >
+                                <Text className="text-base text-gray-700 uppercase pr-2">Get Current Location</Text>
+                                <MapPinIcon size={25} color="gray" />
+                            </View>
+                        )}
+                        { loading && (
+                            <View className="pb-2">
+                                <Progress.Bar
+                                    color="#80847e99" 
+                                    indeterminate={true} 
+                                    indeterminateAnimationDuration={2000}
+                                    width={300} 
+                                    height={25}
+                                    borderColor='#80847e99'
+                                />
+                            </View>
+                        )}
+                    </TouchableOpacity> 
                 )}
                 { option === "destination" && location && (
                     <View className="self-center">
@@ -94,18 +150,20 @@ const MapSearch = ({ option }) => {
                     </View>
                 )}
             </View>
-            <View 
-                style={{ 
-                    borderColor: "#80847e", 
-                    backgroundColor: "#80847eee", 
-                }}
-                className="border-t-2"
-            >
-                <FavouritesCard 
-                    option={option} 
-                    handlePress={handlePress} 
-                />
-            </View>
+            { !toggle && (
+                <View 
+                    style={{ 
+                        borderColor: "#80847e", 
+                        backgroundColor: "#80847eee", 
+                    }}
+                    className="border-t-2"
+                >
+                    <FavouritesCard 
+                        option={option} 
+                        handlePress={handlePress} 
+                    />
+                </View>
+            )}
         </View>
     )
 }

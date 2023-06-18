@@ -12,7 +12,7 @@ const MapScreen = () => {
     return (
         <SafeAreaView className="flex-1">
             <View className="flex-1">
-                <View borderColor="#80847e" className="h-1/3 border-b-2">
+                <View className="h-1/3">
                     <Map />
                 </View>
                 <Stack.Navigator>

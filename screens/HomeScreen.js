@@ -4,8 +4,6 @@ import NavOptions from '../components/NavOptions'
 import { useDispatch } from 'react-redux'
 import client from '../sanity'
 import { setSelectedTaxi, setTaxiInformation } from '../slices/taxiSlice'
-import { getPermissions, reverseGeocode } from '../scripts/geocoding'
-import { setLocation } from '../slices/userSlice'
 
 const logo = require('../assets/logo.png')
 const banner = require('../assets/banner.png')
@@ -33,21 +31,6 @@ const HomeScreen = () => {
             dispatch(setSelectedTaxi(sortedData[0]))
         }
         getTaxiData()
-    }, [])
-
-    useEffect(() => {
-        const data = async () => {
-            const { address, currentLocation } = await getPermissions()
-            if (address)
-                dispatch(setLocation({
-                        address: address,
-                        coords: {
-                            latitude: currentLocation.coords.latitude,
-                            longitude: currentLocation.coords.longitude
-                        }
-                    }))
-        }
-        data()
     }, [])
 
     return (
