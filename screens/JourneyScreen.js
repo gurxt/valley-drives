@@ -1,6 +1,5 @@
 import { View, SafeAreaView } from 'react-native'
 import React from 'react'
-import Map from '../components/Map'
 import { createStackNavigator } from '@react-navigation/stack'
 import PendingDriverCard from '../components/PendingDriverCard'
 import { useSelector } from 'react-redux'
@@ -18,9 +17,6 @@ const JourneyScreen = () => {
 
     return (
         <SafeAreaView className="flex-1">
-            <View className="h-1/2">
-                <Map />
-            </View>
             <Stack.Navigator>
                 <Stack.Screen
                     name="PendingDriverCard"

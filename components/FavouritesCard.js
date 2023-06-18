@@ -4,13 +4,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { BriefcaseIcon, HomeIcon } from 'react-native-heroicons/solid'
 import { ScrollView } from 'react-native'
 import { useDispatch } from 'react-redux'
-import { setOrigin, setDestination } from '../slices/navSlice'
-import { useNavigation } from '@react-navigation/native'
-
 
 const FavouritesCard = ({ option, handlePress }) => {
     const dispatch = useDispatch()
-    const navigation = useNavigation()
 
     const simulate_data = [
         {
@@ -28,14 +24,14 @@ const FavouritesCard = ({ option, handlePress }) => {
             geometry: { location: {"lat": 43.5901376, "lng": -79.72994039999999}}
         },
         {
-            id: "121",
-            icon: <HomeIcon size={30} color="azure" />,
-            location: "Home",
-            description: "244 Welland Street, Pembroke, ON, Canada",
-            geometry: { location: {"lat": 45.8212731, "lng": -77.11632569999999}}
+            id: "12345",
+            icon: <BriefcaseIcon size={30} color="azure" />,
+            location: "Work",
+            description: "6225 Millcreek Drive, Mississauga, ON, Canada",
+            geometry: { location: {"lat": 43.5901376, "lng": -79.72994039999999}}
         },
         {
-            id: "12345",
+            id: "123456",
             icon: <BriefcaseIcon size={30} color="azure" />,
             location: "Work",
             description: "6225 Millcreek Drive, Mississauga, ON, Canada",
@@ -44,7 +40,7 @@ const FavouritesCard = ({ option, handlePress }) => {
     ]
 
     return (
-        <ScrollView className="mb-2 mt-1">
+        <ScrollView className="mb-2 mt-1 max-h-32">
             { simulate_data.map(item => (
                 <TouchableOpacity 
                     key={item.id} 

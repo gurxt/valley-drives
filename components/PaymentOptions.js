@@ -49,8 +49,8 @@ const PaymentOptions = ({ payments }) => {
                         </Text>
                     </View>
                     <View className="flex-1 p-2 items-end">
-                        <View backgroundColor="azure" className="p-2 rounded-xl">
-                            <CheckIcon size={30} color={ selected === idx ? "#9fc9be" : "#0000"} />
+                        <View backgroundColor="#80847e66" className="p-2 rounded-xl">
+                            <CheckIcon size={30} color={ selected === idx ? "#000" : "#0000"} />
                         </View>
                     </View>
                 </TouchableOpacity>

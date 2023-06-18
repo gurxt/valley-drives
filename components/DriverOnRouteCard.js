@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import RideMap from './RideMap'
+import { StackActions, NavigationActions, useNavigation } from '@react-navigation/native'
 
 const DriverOnRouteCard = () => {
-  return (
-    <View>
-      <Text>DriverOnRoute</Text>
-    </View>
-  )
+    return (
+        <RideMap />
+    )
 }
 
 export default DriverOnRouteCard

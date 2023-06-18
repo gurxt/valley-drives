@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
    taxiInformation: null,
-   selectedTaxi: 0
+   selectedTaxi: 0,
+   taxiDrivers: null
 }
 
 export const taxiSlice = createSlice({
@@ -14,17 +15,22 @@ export const taxiSlice = createSlice({
         },
         setSelectedTaxi: (state, action) => {
             state.selectedTaxi = action.payload
+        },
+        setTaxiDrivers: (state, action) => {
+            state.taxiDrivers = action.payload
         }
     }
 })
 
 export const { 
     setTaxiInformation,
-    setSelectedTaxi
+    setSelectedTaxi,
+    setTaxiDrivers
 } = taxiSlice.actions
 
 // selectors 
 export const selectTaxiInformation = (state) => state.taxi.taxiInformation
 export const selectSelectedTaxi = (state) => state.taxi.selectedTaxi
+export const selectTaxiDrivers = (state) => state.taxi.taxiDrivers
 
 export default taxiSlice.reducer

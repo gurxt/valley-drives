@@ -15,11 +15,13 @@ const Map = () => {
     useEffect(() => {
         if (!origin || !destination) return
         
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             mapRef.current.fitToSuppliedMarkers(["origin", "destination"], {
                 edgePadding: { top: 100, right: 100, bottom: 100, left: 100 }
             })
         }, 200)
+
+        return () => clearTimeout(timer)
     }, [origin, destination])
 
     useEffect(() => {

@@ -1,15 +1,5 @@
 import { defineType } from 'sanity'
 
-/*
-{
-            name: "Timmy's Taxi",
-            logo: Taxi1,
-            colors: { text: "#875300", bg: "#705600" },
-            rating: 4.5,
-            rpm: 1.10
-        },
-        */
-
 export default defineType({
     name: 'taxi',
     title: 'Taxi',
@@ -51,5 +41,11 @@ export default defineType({
             type: 'number',
             validation: (Rule) => Rule.required()
         },
+        {
+            name: 'drivers',
+            title: 'Drivers',
+            type: 'array',
+            of: [{ type: 'reference', to: [{ type: 'driver'}] }]
+        }
     ]
 })
