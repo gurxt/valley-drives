@@ -2,22 +2,20 @@ import { View, Text } from 'react-native'
 import React, { useRef, useState, useEffect } from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_APIKEY } from '@env'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setDestination, setOrigin } from '../slices/navSlice'
 import { useNavigation } from '@react-navigation/native'
 import { StyleSheet } from 'react-native'
 import { XMarkIcon, MapPinIcon } from 'react-native-heroicons/solid'
 import FavouritesCard from './FavouritesCard'
-import * as Location from 'expo-location'
-import Geocoder from 'react-native-geocoding'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { selectLocation } from '../slices/userSlice'
 
 const MapSearch = ({ option }) => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const searchTextRef = useRef(null)
-    const [location, setLocation] = useState(null)
-    const [address, setAddress] = useState(null)
+    const location = useSelector(selectLocation)
 
     const handlePress = (data, details) => {
         if (option === "destination") {
@@ -39,33 +37,6 @@ const MapSearch = ({ option }) => {
             navigation.navigate("RideCard")
         }
     }
-
-    const reverseGeocode = async (lat, long) => {
-        const code = await Geocoder.from({ 
-            latitude: lat,
-            longitude: long
-        })
-
-        const addr = code.results[0].formatted_address
-        setAddress(addr)
-        return addr
-    }
-
-    useEffect(() => {
-        Geocoder.init(GOOGLE_MAPS_APIKEY)
-        const getPermissions = async () => {
-            const { status } = await Location.requestForegroundPermissionsAsync()
-            if (status !== "granted") {
-                console.log("Permission not granted.")
-                return
-            }
-
-            const currentLocation = await Location.getCurrentPositionAsync({})
-            setLocation(currentLocation)
-            reverseGeocode(currentLocation.coords.latitude, currentLocation.coords.longitude)
-        }
-        getPermissions()
-    }, [])
 
     return (
         <View backgroundColor="azure" className="flex-1 pt-4">
@@ -99,12 +70,15 @@ const MapSearch = ({ option }) => {
                     fetchDetails={true}
                     returnKeyType={"search"}
                 />
-                { option === "destination" && address && (
+                { !location && (
+                    <Text>Hello</Text>
+                )}
+                { option === "destination" && location && (
                     <View className="self-center">
                         <TouchableOpacity 
                             onPress={() => {
                                 handlePress(
-                                    { description: address },
+                                    { description: location?.address },
                                     { geometry: 
                                         { location: 
                                             { lat: location?.coords.latitude, 
@@ -116,7 +90,7 @@ const MapSearch = ({ option }) => {
                             <Text className="text-base text-gray-700 uppercase pr-2">Use Current Location</Text>
                             <MapPinIcon size={25} color="gray" />
                         </TouchableOpacity>
-                        <Text className="text-sm font-light mb-2 text-center">{address}</Text>
+                        <Text className="text-sm font-light mb-2 text-center">{location?.address}</Text>
                     </View>
                 )}
             </View>

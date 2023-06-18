@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     info: null,
     savedLocations: null,
-    rides: null
+    rides: null,
+    location: null
 }
 
 export const userSlice = createSlice({
@@ -18,6 +19,9 @@ export const userSlice = createSlice({
         },
         setRides: (state, action) => {
             state.rides = action.payload
+        },
+        setLocation: (state, action) => {
+            state.location = action.payload
         }
     }
 })
@@ -25,12 +29,14 @@ export const userSlice = createSlice({
 export const { 
     setInfo,
     setSavedLocations,
-    setRides
+    setRides,
+    setLocation
 } = userSlice.actions
 
 // selectors 
 export const selectInfo = (state) => state.user.info
 export const selectSavedLocation= (state) => state.user.savedLocations
 export const selectRides = (state) => state.user.rides
+export const selectLocation = (state) => state.user.location
 
 export default userSlice.reducer
