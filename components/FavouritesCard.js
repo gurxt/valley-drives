@@ -3,7 +3,6 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { BriefcaseIcon, HomeIcon } from 'react-native-heroicons/solid'
 import { ScrollView } from 'react-native'
-import { useDispatch } from 'react-redux'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 const FavouritesCard = ({ handlePress }) => {
@@ -46,7 +45,7 @@ const FavouritesCard = ({ handlePress }) => {
                     { item.icon }
                     </View>
                     <View className="">
-                        <Text style={{ color: "#F0FFFF99", fontSize: RFPercentage(2) }}>{ item.location }</Text>
+                        <Text style={{ color: "#F0FFFF", fontSize: RFPercentage(2) }}>{ item.location }</Text>
                         <Text style={{ color: "azure", fontSize: RFPercentage(2) }}>{ item.description }</Text>
                     </View>
                 </TouchableOpacity>

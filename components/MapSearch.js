@@ -60,7 +60,7 @@ const MapSearch = ({ option }) => {
 
     return (
         <View backgroundColor="azure" className="flex-1">
-            <View className="h-10 flex-row w-full items-start ml-2">
+            <View className="flex-row w-full ml-2">
                 <Switch
                     trackColor={{ false: "#80847e", true: "#9fc9bc"}} 
                     thumbColor={ toggle ? "#80847e" : "#9fc9bc" }
@@ -69,7 +69,7 @@ const MapSearch = ({ option }) => {
                     style={{ transform: [{ scaleX: 1.20 }, { scaleY: 1.20 }]}}
                 />
             </View>
-            <View className="flex-1 w-full mt-2">
+            <View className="flex-1 w-full">
                 <GooglePlacesAutocomplete
                     placeholder={ option ? 'Start Destination' : 'End Destination' }
                     renderRightButton={() => {

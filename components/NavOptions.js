@@ -35,17 +35,17 @@ const NavOptions = () => {
     const options = [
         { 
             name: "Login", 
-            route: () => navigation.navigate('ProfileScreen'),
+            route: () => navigation.navigate('OptionsScreen'),
             icon: <ArrowRightOnRectangleIcon color={color.gray} size={size.lg} />
         },
         { 
             name: "Create Account", 
-            route: () => navigation.navigate('ProfileScreen'),
+            route: () => navigation.navigate('OptionsScreen'),
             icon: <PlusIcon color={color.gray} size={size.lg} />
         },
         { 
             name: "Help", 
-            route: () => navigation.navigate('ProfileScreen'),
+            route: () => navigation.navigate('OptionsScreen'),
             icon: <QuestionMarkCircleIcon color={color.gray} size={size.lg} />
         }
     ]
@@ -53,7 +53,7 @@ const NavOptions = () => {
     return (
         <View style={style.container}>
             { options.map(option => (
-                <View style={style.buttonContainer}>
+                <View key={option.name} style={style.buttonContainer}>
                     <Button
                         type="outline" 
                         ViewComponent={LinearGradient}
@@ -73,25 +73,22 @@ const NavOptions = () => {
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.green
     },
     buttonContainer: {
         flex: 1,
-        marginTop: 1
     },
     buttonStyle: {
         borderColor: "transparent",
+        borderRadius: 0,
         outline: 0
     },
     linearGradient: {
-        colors: ['#9fc9bc', '#80847e'],
-        start: { x: 0.7, y: 0.5 },
-        end: { x: 0.2, y: 0.1 },
+        colors: [ color.greenT1, color.azureT1],
         height: "100%",
     },
     textStyle: {
         flex: 1,
-        color: color.azure,
+        color: color.gray,
         fontSize: size.m,
         fontWeight: "bold"
     },

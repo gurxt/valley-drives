@@ -2,9 +2,7 @@ import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { Button } from '@rneui/base'
 import { useNavigation } from '@react-navigation/native'
-
-const car = require('../assets/get_ride.png')
-const boat = require('../assets/get_boat_ride.png')
+import Car from "../assets/get_ride.png"
 
 const RideOptionsCard = () => {
     const navigation = useNavigation()
@@ -19,7 +17,7 @@ const RideOptionsCard = () => {
                     style={{ backgroundColor: "#9fc9becc"}} 
                     className="w-full justify-center items-center rounded-t-lg"
                 >
-                    <Text className="text-lg font-light">CAR RIDE</Text>
+                    <Text className="text-lg font-light">GET RIDE</Text>
                 </View>
                 <View>
                     <Button 
@@ -32,34 +30,7 @@ const RideOptionsCard = () => {
                         onPress={() => navigation.navigate('SearchScreen')}
                     >
                         <Image
-                            source={car} 
-                            className="w-32 h-32" 
-                        />
-                    </Button>
-                </View>
-            </View>
-            <View 
-                style={{ borderColor: "#80847e33", backgroundColor: "azure" }}
-                className="border-2 w-1/2 ml-1 rounded-xl"
-            >
-                <View 
-                    style={{ backgroundColor: "#9fc9becc"}} 
-                    className="w-full justify-center items-center rounded-t-lg"
-                >
-                    <Text className="text-gray-900 text-lg font-light">BOAT RIDE</Text>
-                </View>
-                <View>
-                    <Button 
-                        buttonStyle={{ 
-                            display: "flex",
-                            flexDirection: "column",
-                            backgroundColor: "transparent",
-                            width: "100%"
-                        }}
-                        onPress={() => navigation.navigate('SearchScreen')}
-                    >
-                        <Image 
-                            source={boat} 
+                            source={Car} 
                             className="w-32 h-32" 
                         />
                     </Button>

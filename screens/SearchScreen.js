@@ -6,9 +6,7 @@ import MapSearch from '../components/MapSearch'
 
 const SearchScreen = () => {
     return (
-        <SafeAreaView className="flex-1" backgroundColor="azure">
-            <MapSearch option="destination" />
-        </SafeAreaView>
+        <MapSearch option="destination" />
     )
 }
 

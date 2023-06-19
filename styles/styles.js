@@ -11,9 +11,10 @@ export const color = {
     azureT2: "#F0FFFF99",
     azureT3: "#F0FFFF33",
     green: "#9FC9BC",
-    green: "#9FC9BCBB",
-    green: "#9FC9BC99",
-    green: "#9FC9BC33",
+    greenT1: "#9FC9BCBB",
+    greenT2: "#9FC9BC99",
+    greenT3: "#9FC9BC33",
+    darkGray: "#333333",
 }
 
 export const size = {
