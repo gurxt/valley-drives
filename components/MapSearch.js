@@ -12,6 +12,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { selectLocation, setLocation } from '../slices/userSlice'
 import { getPermissions } from '../scripts/geocoding'
 import * as Progress from 'react-native-progress'
+import { Platform } from 'react-native'
 
 const MapSearch = ({ option }) => {
     const dispatch = useDispatch()
@@ -65,21 +66,25 @@ const MapSearch = ({ option }) => {
                     thumbColor={ toggle ? "#80847e" : "#9fc9bc" }
                     value={toggle}
                     onValueChange={() => setToggle(!toggle)}
-                    style={{ transform: [{ scaleX: 1.25 }, { scaleY: 1.25 }]}}
+                    style={{ transform: [{ scaleX: 1.20 }, { scaleY: 1.20 }]}}
                 />
             </View>
             <View className="flex-1 w-full mt-2">
                 <GooglePlacesAutocomplete
                     placeholder={ option ? 'Start Destination' : 'End Destination' }
-                    renderRightButton={() => (
-                        <View style={googleStyles.button}>
-                            <XMarkIcon 
-                                size={20} 
-                                color="black" 
-                                onPress={() => searchTextRef.current.clear()}
-                            />
-                        </View>
-                    )}
+                    renderRightButton={() => {
+                        if (Platform.OS === "android") 
+                            return (
+                                <View style={googleStyles.button}>
+                                    <XMarkIcon 
+                                        size={20} 
+                                        color="black" 
+                                        onPress={() => searchTextRef.current.clear()}
+                                    />
+                                </View>
+                            )
+                        return <View></View>
+                    }}
                     styles={googleStyles}
                     textInputProps={{
                         ref: searchTextRef,
@@ -156,7 +161,7 @@ const MapSearch = ({ option }) => {
                         borderColor: "#80847e", 
                         backgroundColor: "#80847eee", 
                     }}
-                    className="border-t-2"
+                    className="h-1/6 border-t-2"
                 >
                     <FavouritesCard 
                         option={option} 

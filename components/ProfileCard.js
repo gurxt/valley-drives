@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 import { urlFor } from '../sanity'
 import { Image, SafeAreaView } from 'react-native'
@@ -6,7 +6,7 @@ import { PencilSquareIcon } from "react-native-heroicons/outline"
 
 const ProfileCard = ({ user }) => {
     return (
-        <SafeAreaView className="flex-1 w-full mt-10 mb-2 px-2">
+        <SafeAreaView className="flex-1 w-full mb-2 px-2">
             <View className="justify-center items-center p-4 rounded-lg">
                 <Text className="text-gray-900 m-2 text-lg">
                     <Text className="font-thin">Welcome, </Text>
@@ -14,31 +14,8 @@ const ProfileCard = ({ user }) => {
                 </Text>
                 <Image
                     source={{ uri: urlFor(user?.avatar) }} 
-                    className="h-32 w-32 rounded-full" 
+                    className="w-16 h-16 rounded-full" 
                 />
-            </View>
-            <View 
-                style={{ 
-                    backgroundColor: "azure",
-                    borderColor: "#80847e33"
-                }}
-                className="flex-1 w-full mt-2 rounded-lg border-2"
-            >
-                <View 
-                    style={{ backgroundColor: "#9fc9becc"}} 
-                    className="w-full flex-row justify-center items-center h-10 rounded-t "
-                >
-                    <Text className="w-full absolute text-center flex-1 text-gray-900 text-lg font-light uppercase">
-                        Account Information
-                    </Text>
-                    <View className="w-full items-end pr-2">
-                        <PencilSquareIcon 
-                            name="edit" 
-                            size={24} 
-                            color="black" 
-                        />
-                    </View>
-                </View>
             </View>
         </SafeAreaView>
     )

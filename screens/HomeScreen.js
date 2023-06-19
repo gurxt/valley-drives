@@ -4,6 +4,7 @@ import NavOptions from '../components/NavOptions'
 import { useDispatch } from 'react-redux'
 import client from '../sanity'
 import { setSelectedTaxi, setTaxiInformation } from '../slices/taxiSlice'
+import { image } from '../styles/styles'
 
 const logo = require('../assets/logo.png')
 const banner = require('../assets/banner.png')
@@ -34,26 +35,20 @@ const HomeScreen = () => {
     }, [])
 
     return (
-        <SafeAreaView className="h-full">
-            <View>
-                <Image
-                    source={banner}
-                    style={{ 
-                        width: "100%", 
-                        height: 400, 
-                        resizeMode: "cover" 
-                    }}
-                />
-                <Image 
-                    source={logo}
-                    style={{ 
-                        width: "100%", 
-                        height: 100, 
-                        margin: 0, 
-                        resizeMode: "cover",
-                        backgroundColor: "azure"
-                    }}
-                />
+        <SafeAreaView style={{ flex: 1}}>
+            <View style={{ height: "75%"}}>
+                <View style={{ height: "80%" }}>
+                    <Image
+                        source={banner}
+                        style={image.cover}
+                    />
+                </View>
+                <View style={{ height: "20%" }}>
+                    <Image
+                        source={logo}
+                        style={image.cover}
+                    />
+                </View>
             </View>
             <NavOptions />
         </SafeAreaView>
